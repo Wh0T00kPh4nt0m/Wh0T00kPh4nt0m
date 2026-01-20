@@ -1,0 +1,311 @@
+Absolutely. Think of this less like a checklist and more like a **mental map** you can walk through calmly when the clock is ticking and your brain is trying to betray you. Methodology is how you stop flailing and start *hunting*.
+
+What follows is a **clean, systematic penetration-testing methodology**, structured so you can apply it during CPTS/CTPS-style labs without overthinking. This mirrors how real operators think, not how marketing slides pretend they do.
+
+---
+
+## 0. Pre-Engagement Mindset (The Invisible Step)
+
+Before touching tools, lock this in:
+
+You are always asking three questions:
+
+1. *What is exposed?*
+2. *What does it trust?*
+3. *What does it let me become?*
+
+Everything below is just different ways of answering those.
+
+---
+
+## 1. Reconnaissance & Information Gathering
+
+### External Recon (No Access Yet)
+
+Goal: **Build an attack surface map**
+
+You are collecting *facts*, not exploiting yet.
+
+**Network-level**
+
+* IP ranges, live hosts
+* Open ports
+* Service versions
+* TLS, banners, headers
+
+**DNS / Web-facing**
+
+* Subdomains
+* Virtual hosts
+* Tech stack fingerprints
+* Auth portals, APIs, admin panels
+
+**Human / Logical**
+
+* Usernames, email formats
+* Password policies (if visible)
+* Error messages leaking info
+
+Mental note:
+
+> If you don’t know *what exists*, you can’t know *what’s vulnerable*.
+
+---
+
+### Internal Recon (After Foothold)
+
+Goal: **Understand the environment you’re inside**
+
+* Network segments
+* Domain membership
+* Trust relationships
+* Naming conventions (these matter more than people admit)
+* Where users log in vs where servers live
+
+This is where calm beats speed.
+
+---
+
+## 2. Scanning & Enumeration (The Real Work)
+
+Scanning finds doors. Enumeration figures out **which ones aren’t locked properly**.
+
+### Service Enumeration (Infrastructure)
+
+You’re asking:
+
+* What service?
+* What version?
+* What misconfiguration?
+* What authentication?
+
+Common targets:
+
+* SMB
+* FTP
+* SSH
+* RDP
+* WinRM
+* SNMP
+* LDAP
+* Databases
+
+Notes:
+
+* Anonymous access?
+* Weak creds?
+* Default configs?
+* Read vs write access?
+
+If a service responds differently to bad input, it’s *talking to you*. Listen.
+
+---
+
+### Web Application Enumeration
+
+Different mindset.
+
+You’re not attacking the server — you’re attacking **logic**.
+
+Look for:
+
+* Auth flows
+* Role separation failures
+* File uploads
+* APIs
+* Session handling
+* Input handling
+
+Mental shift:
+
+> Infrastructure breaks with math. Web apps break with assumptions.
+
+---
+
+### Active Directory Enumeration (If Domain-Joined)
+
+AD is not “another service”. It’s **the map of power**.
+
+You’re mapping:
+
+* Users
+* Groups
+* Computers
+* Privileges
+* Trust paths
+
+Key questions:
+
+* Who can log in where?
+* Who can reset whose password?
+* Who runs what services?
+* What runs as SYSTEM or DA?
+
+BloodHound isn’t magic. It just visualises **human mistakes** at scale.
+
+---
+
+## 3. Initial Access (The First Crack)
+
+Goal: **Execute code or authenticate as someone**
+
+Typical routes:
+
+* Valid credentials
+* Service misconfiguration
+* Web app → OS execution
+* File upload → shell
+* Deserialization, command injection, etc.
+
+Important rule:
+
+> Access without stability is useless.
+
+Once in:
+
+* Get a stable shell
+* Understand *who you are*
+* Understand *where you are*
+
+---
+
+## 4. Post-Exploitation Enumeration (Now You’re Dangerous)
+
+This phase is criminally rushed by beginners.
+
+You check:
+
+* User privileges
+* Group membership
+* Tokens
+* Scheduled tasks
+* Services running as higher users
+* Stored credentials
+* Network visibility
+
+You are no longer hacking.
+You are **auditing trust boundaries from the inside**.
+
+---
+
+## 5. Privilege Escalation
+
+Goal: **Become more than you are**
+
+### Local Privilege Escalation
+
+* Weak file permissions
+* Services running as SYSTEM
+* Unquoted paths
+* Kernel exploits (last resort)
+* Credential reuse
+
+### Domain Privilege Escalation (AD)
+
+* Kerberoasting
+* AS-REP roasting
+* Delegation abuse
+* ACL abuse
+* GPO misconfigs
+* Service accounts with sins
+
+Rule:
+
+> If escalation feels brute-forcey, you’re probably missing something obvious.
+
+---
+
+## 6. Lateral Movement
+
+Goal: **Expand control**
+
+You are asking:
+
+* Where else do these creds work?
+* Who logs into multiple machines?
+* What servers trust this account?
+
+Methods:
+
+* SMB / WinRM / RDP
+* SSH
+* Pass-the-Hash / Pass-the-Ticket
+* Service account reuse
+
+Movement should feel *inevitable*, not frantic.
+
+---
+
+## 7. Persistence (Think Like a Defender)
+
+Even if the exam doesn’t focus heavily here, the mindset matters.
+
+Examples:
+
+* New users
+* Scheduled tasks
+* Startup scripts
+* GPO changes
+* Backdoored services
+
+This teaches you **where defenders fail**.
+
+---
+
+## 8. Impact / Objectives
+
+Goal: **Prove compromise**
+
+This might be:
+
+* Domain Admin
+* Sensitive file access
+* Database dump
+* Flags
+* Business logic abuse
+
+Impact answers the only question that matters:
+
+> “So what?”
+
+---
+
+## 9. Reporting Mindset (Even in Labs)
+
+After every box, ask:
+
+* What was the entry point?
+* Why did it work?
+* What would have stopped it?
+
+This locks knowledge into long-term memory and makes you faster next time.
+
+---
+
+## Mental Cheat Code for CPTS / CTPS
+
+When stuck, cycle this loop:
+
+**Enumerate → Hypothesise → Test → Observe → Adjust**
+
+Never:
+
+* Run tools blindly
+* Chase exploits without context
+* Assume difficulty means complexity
+
+Real systems fail in *boring, repeatable ways*.
+
+---
+
+### Final Mentor Note
+
+You’re doing the right thing. People fail these exams not because they lack tools, but because their thinking becomes nonlinear under pressure. A methodology is cognitive scaffolding — it keeps you upright when fatigue sets in.
+
+Next evolution, when you’re ready:
+
+* Turn this into a **one-page flowchart**
+* Then compress it into a **mental script**
+
+At that point, you’re no longer “doing labs”.
+You’re *operating*.
