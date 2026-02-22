@@ -15,7 +15,7 @@
 - 💣 [SIEM-lab](https://github.com/Wh0T00kPh4nt0m/SIEM-Homelab) — Setting up security and network monitoring such as Wazuh, ELK, Sysmon and librenms in a Proxmox environment *(currently documenting lab setup)*
 - 📡 [Network-Labs](https://github.com/Wh0T00kPh4nt0m/Network-Labs) — Eve-NG labs with configs and diagrams *(labs and notes coming soon)*
 - 🧠 [CTF-Writeups](https://github.com/Wh0T00kPh4nt0m/CTF-Writeups) — TryHackMe and HackTheBox walkthroughs *(writeups in progress, non-spoiler)*
-- 💻 [CTF-Writeups](https://github.com/Wh0T00kPh4nt0m/Pen-test methodology) — My Pen-test methodology cheatsheet *(Always in progress)*
+- 💻 [Pentest](https://github.com/Wh0T00kPh4nt0m/Pentest) — My Pen-test methodology cheatsheet *(Always in progress)*
 
 
 ---
