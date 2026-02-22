@@ -12,7 +12,7 @@
 
 ### 🔗 Featured Repositories (In Progress)
 
-- 💣 [SIEM-Homelab](https://github.com/Wh0T00kPh4nt0m/SIEM-Homelab) — Setting up Wazuh + ELK + Sysmon in a Proxmox environment *(currently documenting lab setup)*
+- 💣 [SIEM-lab](https://github.com/Wh0T00kPh4nt0m/SIEM-Homelab) — Setting up Wazuh + ELK + Sysmon in a Proxmox environment *(currently documenting lab setup)*
 - 📡 [Network-Labs](https://github.com/Wh0T00kPh4nt0m/Network-Labs) — Packet Tracer labs with configs and diagrams *(labs and notes coming soon)*
 - 🧠 [CTF-Writeups](https://github.com/Wh0T00kPh4nt0m/CTF-Writeups) — TryHackMe and HackTheBox walkthroughs *(writeups in progress, non-spoiler)*
 
