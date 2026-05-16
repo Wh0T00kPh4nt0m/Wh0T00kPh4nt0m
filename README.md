@@ -3,7 +3,7 @@
 
 ---
 
-- 🔭 I’m currently working on building a Proxmox homelab with SIEM, AD, and web services
+- 🔭 I’m currently managing a Proxmox-powered homelab integrating an EVE-NG multi-vendor network (Cisco, Fortinet, Palo Alto) with a security stack featuring Wazuh SIEM and Active Directory.
 - 🌱 I’m currently developing my skills in networking (CCNP) and red team practices
 - 📫 How to reach me: [LinkedIn](www.linkedin.com/in/jack-eggett-3a50731ba) | Jack.Eggett@proton.me
 - ⚡ Fun fact: ☕ My uptime is directly tied to coffee availability.
